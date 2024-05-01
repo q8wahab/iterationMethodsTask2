@@ -75,7 +75,13 @@ Task 6) Identify and create a new array with transactions (both incomes and expe
 
 ******************************************************************/
 //task 5)
-let net = totalIncome - totalExpens;
+const totalIncome2 = transactions
+  .filter((inc) => inc[0] === "income")
+  .reduce((total, inc) => total + inc[1], 0);
+
+const net = transactions
+  .filter((inc) => inc[0] === "expense")
+  .reduce((total, inc) => total - inc[1], totalIncome2);
 
 console.log(net);
 
